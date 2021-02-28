@@ -1,0 +1,46 @@
+.multiselect {
+  font-size: 0.8em;
+  width: 200px;
+  display: inline-block;
+}
+
+.multiselect-label {
+  display: inline-block;
+}
+
+.multiselect-box {
+  position: relative;
+}
+
+.multiselect-box select {
+  width: 100%;
+}
+
+.multiselect-overselect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.multiselect-checkboxes {
+  width: inherit;
+  display: none;
+  border: 1px #bfbfbf solid;
+  border-radius: 6px;
+  position: absolute;
+  background-color: #fdfdfd;
+}
+
+.multiselect-checkboxes label {
+  display: block;
+}
+
+.multiselect-checkboxes label:hover {
+  background-color: #dadada;
+}
+
+.multiselect:hover {
+  background-color: #dadada;
+}

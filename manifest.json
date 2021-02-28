@@ -1,0 +1,31 @@
+{
+  "name": "CSES Problem Set Filter",
+  "version": "0.1.0",
+  "description": "Filter problem list on cses.fi based on topics, and personal status",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["*://cses.fi/*"],
+  "content_scripts": [{
+    "all_frames": true,
+    "matches": ["*://cses.fi/problemset*"],
+    "js": [
+      "src/contents/selectBox.js",
+      "src/contents/filter.js"
+    ],
+    "css": ["src/contents/style.css"]
+  }],
+  "browser_action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "manifest_version": 2
+}
