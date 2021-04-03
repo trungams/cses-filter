@@ -1,5 +1,6 @@
 .multiselect {
   font-size: 0.8em;
+  color: black;
   width: 200px;
   display: inline-block;
 }
@@ -43,4 +44,14 @@
 
 .multiselect:hover {
   background-color: #dadada;
+}
+
+.multiselect-dark {
+  color: white;
+  border: 1px #bfbfbf solid;
+  background-color: #2b2b2b;
+}
+
+.multiselect-dark label:hover {
+  background-color: #484848;
 }

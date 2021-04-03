@@ -71,28 +71,28 @@ const filter = (tags, status) => {
 };
 
 const addFilterMenu = () => {
-  let topicFilterLabel = document.createElement('label');
-  let topicFilter =
+  const topicFilterLabel = document.createElement('label');
+  const topicFilter =
       selectBox('topic-filter', topics, Array(topics.length).fill(true));
   topicFilterLabel.innerHTML = '<b>Topics:</b>';
   topicFilterLabel.htmlFor = topicFilter.id;
   topicFilterLabel.classList.add('inline-block');
 
-  let statusFilterLabel = document.createElement('label');
+  const statusFilterLabel = document.createElement('label');
   const options = ['solved', 'unattempted', 'in progress'];
-  let statusFilter =
+  const statusFilter =
       selectBox('status-filter', options, Array(options.length).fill(true));
   statusFilterLabel.innerHTML = '<b>Status:</b>';
   statusFilterLabel.htmlFor = statusFilter.id;
   statusFilterLabel.classList.add('inline-block');
 
-  let button = document.createElement('button');
+  const button = document.createElement('button');
   button.innerText = 'Filter';
   button.addEventListener('click', (ev) => {
     filter(topicFilter.values(), statusFilter.values());
   });
 
-  let div = document.createElement('div');
+  const div = document.createElement('div');
   div.setAttribute('id', 'filter-menu');
   const elems =
       [topicFilterLabel, topicFilter, statusFilterLabel, statusFilter, button];
@@ -101,6 +101,22 @@ const addFilterMenu = () => {
     div.appendChild(elems[i]);
   }
   content.prepend(div);
+
+  const setDarkMode = () => {
+    setTimeout(() => {
+      const dark = isDarkMode();
+      topicFilter.setDarkMode(dark);
+      statusFilter.setDarkMode(dark);
+    }, 100);
+  };
+
+  setDarkMode();
+
+  const darkModeToggles = [...document.getElementsByTagName('a')].filter(
+      elem => elem.pathname.replace(/\/+/g, '/').replace(/\/+$/, '') ===
+          '/darkmode');
+  darkModeToggles.map(
+      elem => elem.addEventListener('click', () => setDarkMode()));
 };
 
 const displayStats = () => {
